@@ -14,4 +14,10 @@ spec:
     spec:
       containers:
         - name: todo-app
-          image: ruhulaminjr/todoapp:1.2
+          image: ruhulaminjr/todoapp:1.5
+          env:
+          - name: PORT
+            value: "8090"
+
+            
+

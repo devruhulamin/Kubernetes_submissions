@@ -1,0 +1,37 @@
+{{define "content"}}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card">
+            <div class="card-header bg-white">
+                <h4 class="mb-0">Update Task</h4>
+            </div>
+            <div class="card-body">
+                <!-- Assuming URL structure like /update/{id} handled by router -->
+                <form action="/update/{{.Todo.ID}}" method="POST">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" value="{{.Todo.Title}}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="4">{{.Todo.Description}}</textarea>
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="completed" name="completed" value="true" {{if .Todo.Completed}}checked{{end}}>
+                        <label class="form-check-label" for="completed">Mark as Completed</label>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <a href="/" class="btn btn-link text-decoration-none text-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-lg"></i> Update Task
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}
